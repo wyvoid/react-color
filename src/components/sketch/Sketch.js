@@ -127,11 +127,11 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
         onChange={ onChange }
         disableAlpha={ disableAlpha }
       />
-      <SketchPresetColors
+      {/* <SketchPresetColors
         colors={ presetColors }
         onClick={ onChange }
         onSwatchHover={ onSwatchHover }
-      />
+      /> */}
     </div>
   )
 }

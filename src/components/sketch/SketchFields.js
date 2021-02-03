@@ -90,7 +90,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
           onChange={ handleChange }
         />
       </div>
-      <div style={ styles.single }>
+      {/* <div style={ styles.single }>
         <EditableInput
           style={{ input: styles.input, label: styles.label }}
           label="r"
@@ -119,7 +119,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
           dragLabel="true"
           dragMax="255"
         />
-      </div>
+      </div> */}
       <div style={ styles.alpha }>
         <EditableInput
           style={{ input: styles.input, label: styles.label }}
