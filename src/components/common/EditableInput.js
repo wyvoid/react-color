@@ -143,6 +143,7 @@ export class EditableInput extends (PureComponent || Component) {
           id={ this.inputId }
           style={ styles.input }
           ref={ input => this.input = input }
+          maxLength={this.props.maxLength || 100}
           value={ this.state.value }
           onKeyDown={ this.handleKeyDown }
           onChange={ this.handleChange }

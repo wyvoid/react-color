@@ -107,7 +107,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, activeFiel
   }
 
   return (
-    <div style={{ ...styles.fields, borderColor: activeFields ? 'red' : 'blue' }} className="flexbox-fix sketch-fields">
+    <div style={{ ...styles.fields, borderColor: activeFields ? '#02AED3' : '#D2DAE6' }} className="flexbox-fix sketch-fields">
       <div style={ styles.double }>
         <EditableInput
           style={{ input: styles.input, label: styles.label }}
@@ -152,7 +152,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, activeFiel
       </div> */}
       <div style={ styles.alpha }>
         <EditableInput
-          style={{ input: {...styles.input, width: '52%', padding: '3px 0px 3px 4px'}, label: styles.label }}
+          style={{ input: {...styles.input, width: '60%', padding: '3px 0px 3px 4px'}, label: styles.label }}
           label="a"
           suffix="%"
           hideLabel={true}
@@ -160,6 +160,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, activeFiel
           onChange={ handleChange }
           onFocus={ handleAFocus }
           onBlur={ handleABlur }
+          maxLength={4}
           dragLabel="true"
           dragMax="100"
         />
