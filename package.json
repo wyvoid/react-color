@@ -1,6 +1,6 @@
 {
   "name": "@wyvoid/react-color",
-  "version": "3.2.0",
+  "version": "3.2.1",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
   "module": "es/index.js",

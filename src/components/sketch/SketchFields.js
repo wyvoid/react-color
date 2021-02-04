@@ -91,9 +91,9 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, activeFiel
     setActiveFields(true)
   }
   const handleHexBlur = () => {
-    console.log('handleHexBlur')
     hexFocus = false
-    setActiveFields((!hexFocus && !aFocus))
+    setActiveFields((hexFocus || aFocus))
+    console.log('handleHexBlur', (hexFocus || aFocus))
   }
   const handleAFocus = () => {
     console.log('handleAFocus')
@@ -101,9 +101,9 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, activeFiel
     setActiveFields(true)
   }
   const handleABlur = () => {
-    console.log('handleABlur')
     aFocus = false
-    setActiveFields((!hexFocus && !aFocus))
+    setActiveFields((hexFocus || aFocus))
+    console.log('handleABlur', (hexFocus || aFocus))
   }
 
   return (
