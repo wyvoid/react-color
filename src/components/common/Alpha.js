@@ -52,7 +52,7 @@ export class Alpha extends (PureComponent || Component) {
         container: {
           position: 'relative',
           height: '100%',
-          margin: '0 3px',
+          margin: '0 1px',
         },
         pointer: {
           position: 'absolute',

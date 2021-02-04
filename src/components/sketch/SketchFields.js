@@ -6,30 +6,35 @@ import * as color from '../../helpers/color'
 
 import { EditableInput } from '../common'
 
-export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
+export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, activeFields, setActiveFields }) => {
+  let aFocus = false
+  let hexFocus = false
+
   const styles = reactCSS({
     'default': {
       fields: {
         display: 'flex',
-        paddingTop: '4px',
+        border: '1px solid #D2DAE6',
+        boxSizing: 'border-box',
+        borderRadius: '1px',
       },
       single: {
         flex: '1',
         paddingLeft: '6px',
       },
       alpha: {
-        flex: '1',
-        paddingLeft: '6px',
+        // flex: '1',
+        width: '44px',
+        borderLeft: '1px solid #D2DAE6',
       },
       double: {
         flex: '2',
       },
       input: {
         width: '80%',
-        padding: '4px 10% 3px',
+        padding: '3px 8px',
         border: 'none',
-        boxShadow: 'inset 0 0 0 1px #ccc',
-        fontSize: '11px',
+        fontSize: '10px',
       },
       label: {
         display: 'block',
@@ -80,14 +85,39 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
     }
   }
 
+  const handleHexFocus = () => {
+    console.log('handleHexFocus')
+    hexFocus = true
+    setActiveFields(true)
+  }
+  const handleHexBlur = () => {
+    console.log('handleHexBlur')
+    hexFocus = false
+    setActiveFields((!hexFocus && !aFocus))
+  }
+  const handleAFocus = () => {
+    console.log('handleAFocus')
+    aFocus = true
+    setActiveFields(true)
+  }
+  const handleABlur = () => {
+    console.log('handleABlur')
+    aFocus = false
+    setActiveFields((!hexFocus && !aFocus))
+  }
+
   return (
-    <div style={ styles.fields } className="flexbox-fix">
+    <div style={{ ...styles.fields, borderColor: activeFields ? 'red' : 'blue' }} className="flexbox-fix sketch-fields">
       <div style={ styles.double }>
         <EditableInput
           style={{ input: styles.input, label: styles.label }}
           label="hex"
-          value={ hex.replace('#', '') }
+          hideLabel={true}
+          // value={ hex.replace('#', '') }
+          value={hex}
           onChange={ handleChange }
+          onFocus={ handleHexFocus }
+          onBlur={ handleHexBlur }
         />
       </div>
       {/* <div style={ styles.single }>
@@ -122,10 +152,14 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha }) => {
       </div> */}
       <div style={ styles.alpha }>
         <EditableInput
-          style={{ input: styles.input, label: styles.label }}
+          style={{ input: {...styles.input, width: '52%', padding: '3px 0px 3px 4px'}, label: styles.label }}
           label="a"
+          suffix="%"
+          hideLabel={true}
           value={ Math.round(rgb.a * 100) }
           onChange={ handleChange }
+          onFocus={ handleAFocus }
+          onBlur={ handleABlur }
           dragLabel="true"
           dragMax="100"
         />

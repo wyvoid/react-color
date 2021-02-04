@@ -53,6 +53,7 @@ export class EditableInput extends (PureComponent || Component) {
     if (this.state.blurValue) {
       this.setState({ value: this.state.blurValue, blurValue: null })
     }
+    this.props.onBlur && this.props.onBlur()
   }
 
   handleChange = (e) => {
@@ -116,6 +117,11 @@ export class EditableInput extends (PureComponent || Component) {
         wrap: {
           position: 'relative',
         },
+        suffix: {
+          position: 'absolute',
+          fontSize: '10px',
+          transform: 'translate(2px, 3px)',
+        }
       },
       'user-override': {
         wrap: this.props.style && this.props.style.wrap ? this.props.style.wrap : {},
@@ -141,9 +147,15 @@ export class EditableInput extends (PureComponent || Component) {
           onKeyDown={ this.handleKeyDown }
           onChange={ this.handleChange }
           onBlur={ this.handleBlur }
+          onFocus={ this.props.onFocus || function(){}}
           placeholder={ this.props.placeholder }
           spellCheck="false"
         />
+        {
+          this.props.suffix && (
+            <label style={{...styles.suffix}}>{this.props.suffix}</label>
+          )
+        }
         { this.props.label && !this.props.hideLabel ? (
           <label
             htmlFor={ this.inputId }

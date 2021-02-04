@@ -5,10 +5,10 @@ import merge from 'lodash/merge'
 
 import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
-import SketchPresetColors from './SketchPresetColors'
+import { SketchPointer } from './SketchPointer'
 
 export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
-  disableAlpha, presetColors, renderers, styles: passedStyles = {}, className = '' }) => {
+  disableAlpha, activeFields, setActiveFields, presetColors, renderers, styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
@@ -21,7 +21,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
       },
       saturation: {
         width: '100%',
-        paddingBottom: '75%',
+        paddingBottom: '100%',
         position: 'relative',
         overflow: 'hidden',
       },
@@ -33,15 +33,15 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
         display: 'flex',
       },
       sliders: {
-        padding: '4px 0',
+        padding: '6px 0',
         flex: '1',
       },
       color: {
-        width: '24px',
-        height: '24px',
+        width: '22px',
+        height: '22px',
         position: 'relative',
-        marginTop: '4px',
-        marginLeft: '4px',
+        marginTop: '6px',
+        marginLeft: '6px',
         borderRadius: '3px',
       },
       activeColor: {
@@ -52,7 +52,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
       },
       hue: {
         position: 'relative',
-        height: '10px',
+        height: '8px',
         overflow: 'hidden',
       },
       Hue: {
@@ -62,8 +62,8 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
 
       alpha: {
         position: 'relative',
-        height: '10px',
-        marginTop: '4px',
+        height: '8px',
+        marginTop: '6px',
         overflow: 'hidden',
       },
       Alpha: {
@@ -100,6 +100,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
           <div style={ styles.hue }>
             <Hue
               style={ styles.Hue }
+              pointer={ SketchPointer }
               hsl={ hsl }
               onChange={ onChange }
             />
@@ -107,6 +108,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
           <div style={ styles.alpha }>
             <Alpha
               style={ styles.Alpha }
+              pointer={ SketchPointer }
               rgb={ rgb }
               hsl={ hsl }
               renderers={ renderers }
@@ -126,12 +128,9 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
         hex={ hex }
         onChange={ onChange }
         disableAlpha={ disableAlpha }
+        activeFields={ activeFields }
+        setActiveFields={ setActiveFields }
       />
-      {/* <SketchPresetColors
-        colors={ presetColors }
-        onClick={ onChange }
-        onSwatchHover={ onSwatchHover }
-      /> */}
     </div>
   )
 }
@@ -144,6 +143,7 @@ Sketch.propTypes = {
 
 Sketch.defaultProps = {
   disableAlpha: false,
+  setActiveFields: function() {},
   width: 200,
   styles: {},
   presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505',
