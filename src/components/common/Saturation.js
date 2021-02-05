@@ -76,13 +76,13 @@ export class Saturation extends (PureComponent || Component) {
           cursor: 'default',
         },
         circle: {
-          width: '4px',
-          height: '4px',
+          width: '8px',
+          height: '8px',
           boxShadow: `0 0 0 1.5px #fff, inset 0 0 1px 1px rgba(0,0,0,.3),
             0 0 1px 2px rgba(0,0,0,.4)`,
           borderRadius: '50%',
           cursor: 'hand',
-          transform: 'translate(-2px, -2px)',
+          transform: 'translate(-4px, -4px)',
         },
       },
       'custom': {

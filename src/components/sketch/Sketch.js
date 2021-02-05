@@ -7,8 +7,8 @@ import { ColorWrap, Saturation, Hue, Alpha, Checkboard } from '../common'
 import SketchFields from './SketchFields'
 import { SketchPointer } from './SketchPointer'
 
-export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, onSwatchHover,
-  disableAlpha, activeFields, setActiveFields, presetColors, renderers, styles: passedStyles = {}, className = '' }) => {
+export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, activeFields, 
+  setActiveFields, renderers, styles: passedStyles = {}, className = '' }) => {
   const styles = reactCSS(merge({
     'default': {
       picker: {
@@ -146,9 +146,6 @@ Sketch.defaultProps = {
   setActiveFields: function() {},
   width: 200,
   styles: {},
-  presetColors: ['#D0021B', '#F5A623', '#F8E71C', '#8B572A', '#7ED321', '#417505',
-    '#BD10E0', '#9013FE', '#4A90E2', '#50E3C2', '#B8E986', '#000000',
-    '#4A4A4A', '#9B9B9B', '#FFFFFF'],
 }
 
 export default ColorWrap(Sketch)
