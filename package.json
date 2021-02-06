@@ -1,10 +1,10 @@
 {
-  "name": "@wyvoid/react-color",
-  "version": "3.2.21",
+  "name": "@teamind/react-color",
+  "version": "0.0.1",
   "description": "A Collection of Color Pickers from Sketch, Photoshop, Chrome & more",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "author": "wyvoid",
+  "author": "teamind",
   "license": "MIT",
   "scripts": {
     "test": "npm run jest && npm run eslint",
