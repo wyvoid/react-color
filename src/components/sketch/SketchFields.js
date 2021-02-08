@@ -31,7 +31,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, activeFiel
         flex: '2',
       },
       input: {
-        width: '80%',
+        width: '90%',
         padding: '3px 8px',
         border: 'none',
         fontSize: '10px',
@@ -110,7 +110,7 @@ export const SketchFields = ({ onChange, rgb, hsl, hex, disableAlpha, activeFiel
     <div style={{ ...styles.fields, borderColor: activeFields ? '#02AED3' : '#D2DAE6' }} className="flexbox-fix sketch-fields">
       <div style={ styles.double }>
         <EditableInput
-          style={{ input: styles.input, label: styles.label }}
+          style={{ input: {...styles.input, textAlign: 'left'}, label: styles.label }}
           label="hex"
           hideLabel={true}
           // value={ hex.replace('#', '') }
