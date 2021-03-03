@@ -24,6 +24,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, acti
         paddingBottom: '100%',
         position: 'relative',
         overflow: 'hidden',
+        borderRadius: '2px',
       },
       Saturation: {
         radius: '3px',
@@ -53,7 +54,6 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, acti
       hue: {
         position: 'relative',
         height: '8px',
-        overflow: 'hidden',
       },
       Hue: {
         radius: '2px',
@@ -64,7 +64,6 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, acti
         position: 'relative',
         height: '8px',
         marginTop: '6px',
-        overflow: 'hidden',
       },
       Alpha: {
         radius: '2px',
@@ -100,6 +99,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, acti
           <div style={ styles.hue }>
             <Hue
               style={ styles.Hue }
+              radius="13px"
               pointer={ SketchPointer }
               hsl={ hsl }
               onChange={ onChange }
@@ -108,6 +108,7 @@ export const Sketch = ({ width, rgb, hex, hsv, hsl, onChange, disableAlpha, acti
           <div style={ styles.alpha }>
             <Alpha
               style={ styles.Alpha }
+              radius="13px"
               pointer={ SketchPointer }
               rgb={ rgb }
               hsl={ hsl }

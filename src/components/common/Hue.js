@@ -92,7 +92,7 @@ export class Hue extends (PureComponent || Component) {
           ` }</style>
           <div style={ styles.pointer }>
             { this.props.pointer ? (
-              <this.props.pointer { ...this.props } />
+              <this.props.pointer { ...this.props } left={ (this.props.hsl.h * 100) / 360 } hue="true" />
             ) : (
               <div style={ styles.slider } />
             ) }

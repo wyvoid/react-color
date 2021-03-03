@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const SketchPointer = () => {
+export const SketchPointer = (props) => {
   const styles = reactCSS({
     'default': {
       picker: {
@@ -12,13 +12,13 @@ export const SketchPointer = () => {
         border: '2px solid #fff',
         transform: 'translate(-5px, -1px)',
         backgroundColor: 'transparent',
-        boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',
+        boxShadow: '0 0 0 0.4px #A8A8A8',
       },
     },
   })
 
   return (
-    <div style={ styles.picker } />
+    <div style={{...styles.picker, background: (props.hue && (props.left > 97 || props.left < 3)) ?  '#f00' : 'unset' }} />
   )
 }
 
